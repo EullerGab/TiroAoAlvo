@@ -104,6 +104,7 @@ public class TiroAoAlvo extends Jogador implements IJogo {
             }
             this.printMapa();       //Printa o mapa atualizando a posiçãodo alvo abatido.
         } while (rodadas > 0);        //Executa o jogo levando em consideração o número de rodadas disponíveis
+        balaPrata = 0;
         listener.onNewScore(this.nome, this.pontos);
     }
 
