@@ -135,7 +135,7 @@ public class TiroAoAlvo extends Jogador implements IJogo {
         }
     }
 
-    public Integer balaPrata() {
+    public void balaPrata() {
         String resposta;
         if (balaPrata == 0 && rodadas != 1) {
             System.out.println("\nUsar Bala de Prata? [Sim][Nao]");
@@ -145,7 +145,6 @@ public class TiroAoAlvo extends Jogador implements IJogo {
                 balaPrata = 1;
             }
         }
-        return balaPrata;
     }
 
 
@@ -162,9 +161,9 @@ public class TiroAoAlvo extends Jogador implements IJogo {
         System.out.println();
         mostraPontos();
         System.out.print("\n||ALVOS||");
-        for (int linha = 0; linha < 3; linha++) { //Percorre as linhas da matriz
+        for (int linha = 0; linha < this.mapaAlvo.length; linha++) { //Percorre as linhas da matriz
             System.out.println();
-            for (int coluna = 0; coluna < 3; coluna++) {//Percorre as colunas da matriz de acordo com as linhas e printa o seu conteudo.
+            for (int coluna = 0; coluna < this.mapaAlvo.length; coluna++) {//Percorre as colunas da matriz de acordo com as linhas e printa o seu conteudo.
                 System.out.print(" " + this.mapaAlvo[linha][coluna] + " ");
             }
         }
