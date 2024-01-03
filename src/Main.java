@@ -14,7 +14,9 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         resposta = scan.nextLine();
         novojogo =  resposta .equals("Sim") || resposta.equals("sim") || resposta.equals("SIM"); // .equals retorna true/false, se o input for "sim", variavel novo jogo recebe true e cria novo jogo.
-
+        if(!novojogo){
+            System.out.println("FimJogo");
+        }
     }
 
 

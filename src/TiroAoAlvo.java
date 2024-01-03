@@ -179,7 +179,6 @@ public class TiroAoAlvo extends Jogador implements IJogo {
         do {
             alvoBronze = r.nextInt(1, 10);
         } while (alvoBronze == alvoOuro || alvoBronze == alvoPrata);//Lógica garante que não haja alvos com múltiplas premiações.
-        System.out.printf("Ouro: %d\nPrata: %d\nBronze %d", alvoOuro, alvoPrata, alvoBronze);
 
     }
     //endregion
