@@ -7,6 +7,9 @@ public class TiroAoAlvo extends Jogador implements IJogo {
     private int alvo, rodadas = 5;
     private int alvoOuro, alvoPrata, alvoBronze;
     private int balaPrata = 0;
+
+
+
     Random r = new Random();
     Scanner scan = new Scanner(System.in);
 
@@ -51,7 +54,7 @@ public class TiroAoAlvo extends Jogador implements IJogo {
             if (balaPrata == 1) {//Verifica se o jogador esta a usar a bala de prata, caso esteja dobra o valor do premio.
                 this.pontos += PREMIOS_JOGO.OURO.get_valor() * 2;
                 System.out.println("ALVO OURO ABATIDO!!");
-                balaPrata = 2;
+                balaPrata = 2; //Desativa a a bala de prata
             } else {//Caso a bala de prata nao esteja a ser usada, usa o valor do premio normal.
                 this.pontos += PREMIOS_JOGO.OURO.get_valor();
                 System.out.println("ALVO OURO ABATIDO!!");
@@ -75,9 +78,9 @@ public class TiroAoAlvo extends Jogador implements IJogo {
                 this.pontos += PREMIOS_JOGO.BRONZE.get_valor();
                 System.out.println("ALVO BRONZE ABATIDO!!");
             }
-        } else {
+        } else if (balaPrata == 1) { //Verifica se o jogador utilizar a bala de prata e falhar o alvo
             System.out.println("Alvo vazio");
-            balaPrata = 2;
+            balaPrata = 2; //Desativa a a bala de prata
         }
 
     }
@@ -135,14 +138,22 @@ public class TiroAoAlvo extends Jogador implements IJogo {
         }
     }
 
+    //Método verifica se a linha do scanner esta preenchida
+    public boolean hasNext() {
+        return false;
+    }
+    //Metodo da bala de prata - Dobra o valor do premio caso o jogador utilize e acerte o alvo premiado.
     public void balaPrata() {
         String resposta;
-        if (balaPrata == 0 && rodadas != 1) {
+        if (balaPrata == 0 && rodadas >= 2) {
+            while (hasNext()){ //Limpa linha do scanner
+                scan.reset();
+            }
             System.out.println("\nUsar Bala de Prata? [Sim][Nao]");
             resposta = scan.next();
-            if (resposta.equals("Sim") || resposta.equals("sim") || resposta.equals("SIM")) {
+            if (resposta.equals("Sim") || resposta.equals("sim") || resposta.equals("SIM")) { //Pergunta ao jogador se ele quer usar a bala de prata
                 rodadas--;
-                balaPrata = 1;
+                balaPrata = 1; //Ativa a bala de prata caso o jogador queira utilizá-la
             }
         }
     }
