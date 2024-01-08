@@ -81,7 +81,10 @@ public class TiroAoAlvo extends Jogador implements IJogo {
         } else if (balaPrata == 1) { //Verifica se o jogador utilizar a bala de prata e falhar o alvo
             System.out.println("Alvo vazio");
             balaPrata = 2; //Desativa a a bala de prata
+        } else {
+            System.out.println("Alvo vazio");
         }
+
 
     }
 
